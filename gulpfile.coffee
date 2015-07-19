@@ -31,7 +31,7 @@ gulp.task 'serve', () ->
     gulp.watch([config.path.htdocs + '**/*.html'], reload)
     gulp.watch([config.path.scss + '**/*.{scss,rb}'], ['styles', reload])
     # gulp.watch([config.path.js + '**/*.js'], [reload])
-    gulp.watch([config.path.jade + '**.jade'], ['jade', reload])
+    gulp.watch([config.path.jade + '**/*.jade'], ['jade', reload])
     gulp.watch([config.path.coffee + '**/*.coffee'], ['coffeelint', 'coffee', reload])
 
 
@@ -46,7 +46,6 @@ gulp.task 'default', (cb) ->
 gulp.task 'deploy', (cb) ->
     runSequence(
         'build',
-        'clean',
         'copy',
         'coffeelint',
         'stylestats',
